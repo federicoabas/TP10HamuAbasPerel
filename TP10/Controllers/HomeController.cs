@@ -15,17 +15,48 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View();
+        if(Objeto!=null){
+            Juego juego = new Juego();
+            HttpContext.Session.SetString("juego", Objeto.ObjectToString(juego));
+        }
+        return View("Index");
     }
 
-    public IActionResult Privacy()
+    public IActionResult ConfigurarJuego()
     {
-        return View();
+        Juego juego = Objeto.StringToObject<Juego>(HttpContext.Session.GetString("juego"));
+        ViewBag.categorias=juego.obtenerCategorias();
+        HttpContext.Session.SetString("juego", Objeto.ObjectToString(juego));
+        return View("configurarJuego");
     }
 
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
+    public IActionresult Comenzar(string username, int categoria)
     {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        Juego juego = Objeto.StringToObject<Juego>(HttpContext.Session.GetString("juego"));
+        ViewBag.categorias=juego.obtenerCategorias();
+        HttpContext.Session.SetString("juego", Objeto.ObjectToString(juego));
+        return RedirectToAction("Jugar");
+    }
+    public IActionResult jugar()
+    {
+        Juego juego = Objeto.StringToObject<Juego>(HttpContext.Session.GetString("juego"));
+        ViewBag.preguntaActual = juego.obtenerProximaPregunta();
+        if(ViewBag.preguntaActual== null)
+        {
+            return View("Fin");
+        }
+        else
+        {
+        ViewBag.respuestaActual = juego.obtenerProximasRespuestas(ViewBag.preguntaActual.idPregunta); 
+        HttpContext.Session.SetString("juego", Objeto.ObjectToString(juego));
+        return View("Jugar");
+    
+        } 
+        }
+    public IActionResult verificarRespuesta(int idPregunta, int idRespuesta)
+    {
+        Juego juego = Objeto.StringToObject<Juego>(HttpContext.Session.GetString("juego"));
+        ViewBag.verificarRespuesta = juego.verificarRespuesta(idRespuesta);
+        return View("Respuesta");
     }
 }
