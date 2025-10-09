@@ -34,6 +34,7 @@ public class HomeController : Controller
     {
         Juego juego = Objeto.StringToObject<Juego>(HttpContext.Session.GetString("juego"));
         ViewBag.categorias=juego.obtenerCategorias();
+        ViewBag.username = username;
         HttpContext.Session.SetString("juego", Objeto.ObjectToString(juego));
         return RedirectToAction("Jugar");
     }
@@ -49,10 +50,11 @@ public class HomeController : Controller
         {
         ViewBag.respuestaActual = juego.obtenerProximasRespuestas(ViewBag.preguntaActual.idPregunta); 
         HttpContext.Session.SetString("juego", Objeto.ObjectToString(juego));
-        return View("Jugar");
+        return View("Juego");
     
         } 
-        }
+    }
+    [HttpPost]
     public IActionResult verificarRespuesta(int idPregunta, int idRespuesta)
     {
         Juego juego = Objeto.StringToObject<Juego>(HttpContext.Session.GetString("juego"));

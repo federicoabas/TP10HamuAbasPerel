@@ -29,7 +29,7 @@ public class Preguntas
         listPreguntas = BD.ObtenerPreguntas(categoria);
         username = nombreUsuario;
     }
-    public obtenerProximaPregunta()
+    public List<int> obtenerProximaPregunta()
     {
         return listPreguntas[contadorNroPreguntaActual +1];
     }

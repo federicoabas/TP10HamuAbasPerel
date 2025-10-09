@@ -21,7 +21,7 @@ public static class BD
       List<Preguntas> pregunta = new List<Preguntas>();
         using (SqlConnection connection = new SqlConnection(_connectionString))
         {
-            string query = "SELECT * FROM Preguntas WHERE categoria = @categoria";
+            string query = "SELECT * FROM Preguntas WHERE IdCategoria = @categoria";
             pregunta = connection.Query<Preguntas>(query).ToList();
 
         }

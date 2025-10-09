@@ -1,0 +1,9 @@
+C:\Users\48801689\TP10HamuAbasPerel\TP10\obj\Debug\net8.0\TP10.csproj.AssemblyReference.cache
+C:\Users\48801689\TP10HamuAbasPerel\TP10\obj\Debug\net8.0\TP10.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\48801689\TP10HamuAbasPerel\TP10\obj\Debug\net8.0\TP10.AssemblyInfoInputs.cache
+C:\Users\48801689\TP10HamuAbasPerel\TP10\obj\Debug\net8.0\TP10.AssemblyInfo.cs
+C:\Users\48801689\TP10HamuAbasPerel\TP10\obj\Debug\net8.0\TP10.csproj.CoreCompileInputs.cache
+C:\Users\48801689\TP10HamuAbasPerel\TP10\obj\Debug\net8.0\TP10.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\48801689\TP10HamuAbasPerel\TP10\obj\Debug\net8.0\TP10.RazorAssemblyInfo.cache
+C:\Users\48801689\TP10HamuAbasPerel\TP10\obj\Debug\net8.0\TP10.RazorAssemblyInfo.cs
+C:\Users\48801689\TP10HamuAbasPerel\TP10\obj\Debug\net8.0\TP10.sourcelink.json
