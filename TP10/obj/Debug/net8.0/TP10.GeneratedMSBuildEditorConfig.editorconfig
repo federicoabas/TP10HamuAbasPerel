@@ -22,12 +22,20 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb25maWd1cmFySnVlZ28uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/48801689/TP10HamuAbasPerel/TP10/Views/Home/Fin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxGaW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/48801689/TP10HamuAbasPerel/TP10/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/48801689/TP10HamuAbasPerel/TP10/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+[C:/Users/48801689/TP10HamuAbasPerel/TP10/Views/Home/Juego.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxKdWVnby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/48801689/TP10HamuAbasPerel/TP10/Views/Home/Respuesta.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZXNwdWVzdGEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/48801689/TP10HamuAbasPerel/TP10/Views/Shared/Error.cshtml]

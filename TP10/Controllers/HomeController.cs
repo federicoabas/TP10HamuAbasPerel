@@ -51,7 +51,6 @@ public class HomeController : Controller
         ViewBag.respuestaActual = juego.obtenerProximasRespuestas(ViewBag.preguntaActual.idPregunta); 
         HttpContext.Session.SetString("juego", Objeto.ObjectToString(juego));
         return View("Juego");
-    
         } 
     }
     [HttpPost]
@@ -59,6 +58,7 @@ public class HomeController : Controller
     {
         Juego juego = Objeto.StringToObject<Juego>(HttpContext.Session.GetString("juego"));
         ViewBag.verificarRespuesta = juego.verificarRespuesta(idRespuesta);
-        return View("Respuesta");
+        HttpContext.Session.SetString("juego", Objeto.ObjectToString(juego));
+        return View("Juego");
     }
 }

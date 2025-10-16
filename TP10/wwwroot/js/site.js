@@ -1,4 +1,10 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-// Write your JavaScript code.
+﻿function ponerFuncionFinal() {
+    const contenedor = document.getElementById("respuesta")
+    let rtaVerificada=document.getElementById("verificado").value
+    let rtaActual=document.getElementById("rta").value
+    
+    contenedor.innerHTML = `
+    if(${rtaVerificada}){<h3>Respuesta correcta!</h3>}
+    else{<h3>Respuesta incorrecta!
+        La respuesta correcta era: ${rta}</h3>}`
+}

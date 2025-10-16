@@ -2,4 +2,13 @@
     ViewData["Title"] = "Juego";
 
 }
-puntaje actual: @ViewBag.puntajeA
+puntaje actual: @ViewBag.puntajeActual
+Pregunta actual: @ViewBag.preguntaActual
+
+<form action='@Url.Action("verificarRespuesta", "Home")' method="POST" enctype="application/x-www-form-urlencoded">
+                <button type="submit">Finalizar partida</button>} 
+    <input type="submit" value="Guardar"/>
+</form>
+<input type="hyden" name="verificado" value=ViewBag.verificarRespuesta>
+<input type="hyden" name="rtaActual" value=ViewBag.respuestaActual>
+<div id="respuesta"></div>
