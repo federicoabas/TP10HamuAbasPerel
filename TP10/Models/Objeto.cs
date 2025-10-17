@@ -1,3 +1,4 @@
+namespace TP10.Models;
 using Newtonsoft.Json;
 public static class Objeto{
     public static string ObjectToString<T>(T? obj){

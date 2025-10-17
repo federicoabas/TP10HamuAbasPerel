@@ -219,7 +219,7 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
-      "Microsoft.Data.SqlClient/6.1.1": {
+      "Microsoft.Data.SqlClient/6.1.2": {
         "type": "package",
         "dependencies": {
           "Azure.Core": "1.47.1",
@@ -1190,10 +1190,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Data.SqlClient/6.1.1": {
-      "sha512": "syGQmIUPAYYHAHyTD8FCkTNThpQWvoA7crnIQRMfp8dyB5A2cWU3fQexlRTFkVmV7S0TjVmthi0LJEFVjHo8AQ==",
+    "Microsoft.Data.SqlClient/6.1.2": {
+      "sha512": "q0GxRC0fgwfZgU14pU34ro0MW7Gs8S6NDmKCcEqymvZljT8UQa633BbEmk/Rb5upNF9NHZ3/jVm7zLiWbM8uTA==",
       "type": "package",
-      "path": "microsoft.data.sqlclient/6.1.1",
+      "path": "microsoft.data.sqlclient/6.1.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1246,7 +1246,7 @@
         "lib/net9.0/zh-Hant/Microsoft.Data.SqlClient.resources.dll",
         "lib/netstandard2.0/Microsoft.Data.SqlClient.dll",
         "lib/netstandard2.0/Microsoft.Data.SqlClient.xml",
-        "microsoft.data.sqlclient.6.1.1.nupkg.sha512",
+        "microsoft.data.sqlclient.6.1.2.nupkg.sha512",
         "microsoft.data.sqlclient.nuspec",
         "ref/net462/Microsoft.Data.SqlClient.dll",
         "ref/net462/Microsoft.Data.SqlClient.xml",
@@ -2450,28 +2450,28 @@
     "net8.0": [
       "Dapper >= 2.1.66",
       "Microsoft.AspNetCore.Session >= 2.3.0",
-      "Microsoft.Data.SqlClient >= 6.1.1",
+      "Microsoft.Data.SqlClient >= 6.1.2",
       "NewtonSoft.Json >= 13.0.4"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\48801689\\.nuget\\packages\\": {},
+    "C:\\Users\\49121720\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\48801689\\TP10HamuAbasPerel\\TP10\\TP10.csproj",
+      "projectUniqueName": "C:\\Users\\49121720\\TP10HamuAbasPerel\\TP10\\TP10.csproj",
       "projectName": "TP10",
-      "projectPath": "C:\\Users\\48801689\\TP10HamuAbasPerel\\TP10\\TP10.csproj",
-      "packagesPath": "C:\\Users\\48801689\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\48801689\\TP10HamuAbasPerel\\TP10\\obj\\",
+      "projectPath": "C:\\Users\\49121720\\TP10HamuAbasPerel\\TP10\\TP10.csproj",
+      "packagesPath": "C:\\Users\\49121720\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\49121720\\TP10HamuAbasPerel\\TP10\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\48801689\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\49121720\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2513,7 +2513,7 @@
           },
           "Microsoft.Data.SqlClient": {
             "target": "Package",
-            "version": "[6.1.1, )"
+            "version": "[6.1.2, )"
           },
           "NewtonSoft.Json": {
             "target": "Package",

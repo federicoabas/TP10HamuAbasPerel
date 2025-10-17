@@ -15,10 +15,8 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        if(Objeto!=null){
-            Juego juego = new Juego();
+        Juego juego = new Juego();
             HttpContext.Session.SetString("juego", Objeto.ObjectToString(juego));
-        }
         return View("Index");
     }
 
@@ -30,11 +28,10 @@ public class HomeController : Controller
         return View("configurarJuego");
     }
 
-    public IActionresult Comenzar(string username, int categoria)
+    public IActionResult Comenzar(string username, int categoria)
     {
         Juego juego = Objeto.StringToObject<Juego>(HttpContext.Session.GetString("juego"));
-        ViewBag.categorias=juego.obtenerCategorias();
-        ViewBag.username = username;
+        juego.cargarPartida(username, categoria);
         HttpContext.Session.SetString("juego", Objeto.ObjectToString(juego));
         return RedirectToAction("Jugar");
     }
@@ -42,13 +39,16 @@ public class HomeController : Controller
     {
         Juego juego = Objeto.StringToObject<Juego>(HttpContext.Session.GetString("juego"));
         ViewBag.preguntaActual = juego.obtenerProximaPregunta();
+        ViewBag.respuestas=juego.obtenerProximasRespuestas(ViewBag.preguntaActual.IdPregunta);
         if(ViewBag.preguntaActual== null)
         {
+            ViewBag.puntajeActual = juego.puntuajeActual;
             return View("Fin");
         }
         else
         {
         ViewBag.respuestaActual = juego.obtenerProximasRespuestas(ViewBag.preguntaActual.idPregunta); 
+
         HttpContext.Session.SetString("juego", Objeto.ObjectToString(juego));
         return View("Juego");
         } 

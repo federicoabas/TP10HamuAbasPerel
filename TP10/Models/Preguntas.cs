@@ -1,3 +1,4 @@
+namespace TP10.Models;
 using Microsoft.Data.SqlClient;
 public class Preguntas
 {

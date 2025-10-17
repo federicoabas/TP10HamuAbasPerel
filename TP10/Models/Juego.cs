@@ -1,20 +1,21 @@
+namespace TP10.Models;
 using Microsoft.Data.SqlClient;
-public class Preguntas
+public class Juego
 {
     private string username;
-    private int puntuajeActual;
+    public int puntuajeActual;
     private int cantidadPreguntasCorrectas;
     private int contadorNroPreguntaActual;
     private Preguntas preguntaActual;
     private List<Preguntas> listPreguntas;
-    List<Respuesta> listRespuestas;
+    List<Respuestas> listRespuestas;
 
     private void inicializarJuego()
     {
         username = null;
         puntuajeActual = 0;
         cantidadPreguntasCorrectas = 0;
-        contadorNroPreguntaActual = 0;
+        contadorNroPreguntaActual = -1;
         preguntaActual = null;
         listPreguntas = null;
         listRespuestas = null;
@@ -29,9 +30,10 @@ public class Preguntas
         listPreguntas = BD.ObtenerPreguntas(categoria);
         username = nombreUsuario;
     }
-    public List<int> obtenerProximaPregunta()
+    public Preguntas obtenerProximaPregunta()
     {
-        return listPreguntas[contadorNroPreguntaActual +1];
+        contadorNroPreguntaActual++;
+        return listPreguntas[contadorNroPreguntaActual];
     }
     public void obtenerProximasRespuestas( int idPregunta)
     {
@@ -40,14 +42,19 @@ public class Preguntas
     public bool verificarRespuesta(int idRespuesta)
     {
         bool correcta=false;
-        if(BD.ObtenerRespuestas(idPregunta)==idRespuesta)
+        Respuestas rtaCorrecta=null;
+        foreach(Respuestas respuesta in BD.ObtenerRespuestas(preguntaActual.IdPregunta)){
+            if(respuesta.Correcta){rtaCorrecta=respuesta;}
+        }
+        if(rtaCorrecta.IdRespuesta==idRespuesta)
         {
             puntuajeActual+=100;
             cantidadPreguntasCorrectas++;
         }
         contadorNroPreguntaActual++;
-        preguntaActual = listPreguntas(contadorNroPreguntaActual);
+        preguntaActual = listPreguntas[contadorNroPreguntaActual];
         return correcta;
+        
     }
 
 }

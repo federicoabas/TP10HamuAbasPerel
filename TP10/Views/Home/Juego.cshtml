@@ -2,13 +2,27 @@
     ViewData["Title"] = "Juego";
 
 }
-puntaje actual: @ViewBag.puntajeActual
+Jugador: @ViewBag.username
+ Puntaje actual: @ViewBag.puntajeActual
 Pregunta actual: @ViewBag.preguntaActual
+ <form method="post" action='@Url.Action("VerificarRespuesta","Home")'>
+        <select id="idRespuesta" name="idRespuesta" required>
+            <option value="">Seleccioná una respuesta</option>
+            @foreach (Respuestas respuesta in ViewBag.respuestas)
+            {
+                <option value=respuesta.IdRespuesta>@respuesta.Opcion) @respuesta.Contenido</option>
+            }
+        </select>
 
-<form action='@Url.Action("verificarRespuesta", "Home")' method="POST" enctype="application/x-www-form-urlencoded">
-                <button type="submit">Finalizar partida</button>} 
-    <input type="submit" value="Guardar"/>
-</form>
+        <input type="hidden" name="idPregunta" value=pregunta.IdPregunta />
+        
+        <button type="submit">Responder</button>
+    </form>
+
+
+
+
+
 <input type="hyden" name="verificado" value=ViewBag.verificarRespuesta>
 <input type="hyden" name="rtaActual" value=ViewBag.respuestaActual>
 <div id="respuesta"></div>

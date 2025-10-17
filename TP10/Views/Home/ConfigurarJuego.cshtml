@@ -4,8 +4,9 @@
 
 <form action='@Url.Action("Comenzar", "Home")' method="GET" enctype="application/x-www-form-urlencoded">
     Ingrese el nombre de usuario: <input type="text" name="username"/>
-    Ingrese la categoria a elegir: @foreach(Categorias categoria in ViewBag.categorias){
-        <input type="radio" name="categoria" value = "-1" id= categoria/>
-    } 
-    <input type="submit" value="Guardar"/>
+    Ingrese la categoria a elegir: 
+    @foreach(Categorias categoria in ViewBag.categorias){
+        <option value=categoria.IdCategoria>categoria.Nombre</option>
+    }
+    
 </form>
