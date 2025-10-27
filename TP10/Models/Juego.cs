@@ -33,6 +33,7 @@ public class Juego
     public Preguntas obtenerProximaPregunta()
     {
         contadorNroPreguntaActual++;
+        foreach(Preguntas pre in listPreguntas){Console.WriteLine(pre.Enunciado);}
         return listPreguntas[contadorNroPreguntaActual];
     }
     public void obtenerProximasRespuestas( int idPregunta)
