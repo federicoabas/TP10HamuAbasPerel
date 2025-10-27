@@ -16,7 +16,7 @@ public class HomeController : Controller
     public IActionResult Index()
     {
         Juego juego = new Juego();
-            HttpContext.Session.SetString("juego", Objeto.ObjectToString(juego));
+        HttpContext.Session.SetString("juego", Objeto.ObjectToString(juego));
         return View("Index");
     }
 
@@ -38,18 +38,18 @@ public class HomeController : Controller
     public IActionResult jugar()
     {
         Juego juego = Objeto.StringToObject<Juego>(HttpContext.Session.GetString("juego"));
-        var preg = juego.obtenerProximaPregunta();
-        ViewBag.preguntaActual = preg;
-        ViewBag.respuestas = juego.obtenerProximasRespuestas(preg.IdPregunta);
-        ViewBag.username = "Jugador"; // o guardalo al iniciar el juego
-        ViewBag.puntajeActual = juego.puntuajeActual;
-
+        Preguntas preg = juego.obtenerProximaPregunta();
+        ViewBag.username= juego.username;
+        
         if (preg == null)
         {
             ViewBag.puntajeActual = juego.puntuajeActual;
             HttpContext.Session.SetString("juego", Objeto.ObjectToString(juego));
             return View("Fin");
         }
+            ViewBag.preguntaActual = preg;
+            ViewBag.respuestas = juego.obtenerProximasRespuestas(preg.IdPregunta);
+            ViewBag.puntajeActual = juego.puntuajeActual;
 
         ViewBag.preguntaActual = preg;
         ViewBag.respuestas = juego.obtenerProximasRespuestas(preg.IdPregunta);
@@ -57,7 +57,8 @@ public class HomeController : Controller
         HttpContext.Session.SetString("juego", Objeto.ObjectToString(juego));
         return View("Juego");
     }
-        [HttpPost]
+        
+    [HttpPost]
     public IActionResult verificarRespuesta(int idPregunta, int idRespuesta)
     {
         Juego juego = Objeto.StringToObject<Juego>(HttpContext.Session.GetString("juego"));

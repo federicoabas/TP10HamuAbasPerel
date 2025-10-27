@@ -4,7 +4,7 @@
 }
 Jugador: @ViewBag.username
 Puntaje actual: @ViewBag.puntajeActual
-Pregunta actual: @ViewBag.preguntaActual
+Pregunta actual: @ViewBag.preguntaActual.Enunciado
  <form method="post" action='@Url.Action("VerificarRespuesta","Home")'>
         <select id="idRespuesta" name="idRespuesta" required>
             <h2>Seleccioná una respuesta</h2>
