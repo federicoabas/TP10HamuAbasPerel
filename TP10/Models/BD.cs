@@ -5,7 +5,7 @@ using Dapper;
 public static class BD
 {
     private static string _connectionString = @"Server=localhost; 
-   DataBase = TP10; Integrated Security=True; TrustServerCertificate=True;";
+   DataBase = TP10Hamu_Perel_Abas; Integrated Security=True; TrustServerCertificate=True;";
     public static List<Categorias> ObtenerCategorias()
     {
         List<Categorias> categorias = new List<Categorias>();

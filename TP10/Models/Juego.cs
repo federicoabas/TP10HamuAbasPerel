@@ -32,13 +32,22 @@ public class Juego
     }
     public Preguntas obtenerProximaPregunta()
     {
+        // protección contra null/vacío y fuera de rango
+        if (listPreguntas == null || listPreguntas.Count == 0)
+            return null;
+
         contadorNroPreguntaActual++;
-        foreach(Preguntas pre in listPreguntas){Console.WriteLine(pre.Enunciado);}
-        return listPreguntas[contadorNroPreguntaActual];
+        if (contadorNroPreguntaActual < 0 || contadorNroPreguntaActual >= listPreguntas.Count)
+            return null;
+
+        preguntaActual = listPreguntas[contadorNroPreguntaActual];
+        return preguntaActual;
     }
-    public void obtenerProximasRespuestas( int idPregunta)
+    // ahora devuelve la lista para poder asignarla al ViewBag
+    public List<Respuestas> obtenerProximasRespuestas(int idPregunta)
     {
         listRespuestas = BD.ObtenerRespuestas(idPregunta);
+        return listRespuestas;
     }
     public bool verificarRespuesta(int idRespuesta)
     {
@@ -47,13 +56,18 @@ public class Juego
         foreach(Respuestas respuesta in BD.ObtenerRespuestas(preguntaActual.IdPregunta)){
             if(respuesta.Correcta){rtaCorrecta=respuesta;}
         }
-        if(rtaCorrecta.IdRespuesta==idRespuesta)
+        if(rtaCorrecta != null && rtaCorrecta.IdRespuesta==idRespuesta)
         {
             puntuajeActual+=100;
             cantidadPreguntasCorrectas++;
+            correcta = true;
         }
+        // mover a la siguiente pregunta solo si hay más
         contadorNroPreguntaActual++;
-        preguntaActual = listPreguntas[contadorNroPreguntaActual];
+        if (listPreguntas != null && contadorNroPreguntaActual < listPreguntas.Count)
+            preguntaActual = listPreguntas[contadorNroPreguntaActual];
+        else
+            preguntaActual = null;
         return correcta;
         
     }

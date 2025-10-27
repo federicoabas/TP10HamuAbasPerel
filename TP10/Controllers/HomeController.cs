@@ -38,22 +38,22 @@ public class HomeController : Controller
     public IActionResult jugar()
     {
         Juego juego = Objeto.StringToObject<Juego>(HttpContext.Session.GetString("juego"));
-        ViewBag.preguntaActual = juego.obtenerProximaPregunta();
-        ViewBag.respuestas=juego.obtenerProximasRespuestas(ViewBag.preguntaActual.IdPregunta);
-        if(ViewBag.preguntaActual== null)
+        var preg = juego.obtenerProximaPregunta();
+
+        if (preg == null)
         {
             ViewBag.puntajeActual = juego.puntuajeActual;
+            HttpContext.Session.SetString("juego", Objeto.ObjectToString(juego));
             return View("Fin");
         }
-        else
-        {
-        ViewBag.respuestaActual = juego.obtenerProximasRespuestas(ViewBag.preguntaActual.idPregunta); 
+
+        ViewBag.preguntaActual = preg;
+        ViewBag.respuestas = juego.obtenerProximasRespuestas(preg.IdPregunta);
 
         HttpContext.Session.SetString("juego", Objeto.ObjectToString(juego));
         return View("Juego");
-        } 
     }
-    [HttpPost]
+        [HttpPost]
     public IActionResult verificarRespuesta(int idPregunta, int idRespuesta)
     {
         Juego juego = Objeto.StringToObject<Juego>(HttpContext.Session.GetString("juego"));
