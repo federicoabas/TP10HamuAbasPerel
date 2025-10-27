@@ -39,6 +39,10 @@ public class HomeController : Controller
     {
         Juego juego = Objeto.StringToObject<Juego>(HttpContext.Session.GetString("juego"));
         var preg = juego.obtenerProximaPregunta();
+        ViewBag.preguntaActual = preg;
+        ViewBag.respuestas = juego.obtenerProximasRespuestas(preg.IdPregunta);
+        ViewBag.username = "Jugador"; // o guardalo al iniciar el juego
+        ViewBag.puntajeActual = juego.puntuajeActual;
 
         if (preg == null)
         {

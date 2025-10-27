@@ -10,11 +10,11 @@ Pregunta actual: @ViewBag.preguntaActual
             <h2>Seleccioná una respuesta</h2>
             @foreach (Respuestas respuesta in ViewBag.respuestas)
             {
-                <option value=respuesta.IdRespuesta> @respuesta.Contenido</option>
+                <option value="@respuesta.IdRespuesta">@respuesta.Contenido</option>
             }
         </select>
 
-        <input type="hidden" name="idPregunta" value=pregunta.IdPregunta />
+        <input type="hidden" name="idPregunta" value="@ViewBag.preguntaActual.IdPregunta" />
         
         <button type="submit">Responder</button>
     </form>
@@ -23,6 +23,6 @@ Pregunta actual: @ViewBag.preguntaActual
 
 
 
-<input type="hyden" name="verificado" value=ViewBag.verificarRespuesta>
-<input type="hyden" name="rtaActual" value=ViewBag.respuestaActual>
+<input type="hidden" name="verificado" value=ViewBag.verificarRespuesta>
+<input type="hidden" name="rtaActual" value=ViewBag.respuestaActual>
 <div id="respuesta"></div>

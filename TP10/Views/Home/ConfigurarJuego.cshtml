@@ -7,7 +7,7 @@
     Ingrese la categoria a elegir: 
     <select name="categoria">
     @foreach(Categorias categoria in ViewBag.categorias){
-        <option value=categoria.IdCategoria>@categoria.Nombre</option>
+    <option value="@categoria.IdCategoria">@categoria.Nombre</option>
     }
     </select>
     <input type ="submit" value="Jugar">

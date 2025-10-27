@@ -32,7 +32,7 @@ public static class BD
       List<Respuestas> respuesta = new List<Respuestas>();
         using (SqlConnection connection = new SqlConnection(_connectionString))
         {
-            string query = "SELECT * FROM Respuesta WHERE IdPregunta = @ppregunta";
+            string query = "SELECT * FROM Respuestas WHERE IdPregunta = @ppregunta";
             respuesta = connection.Query<Respuestas>(query, new { ppregunta = IdPregunta }).ToList();
 
         }
