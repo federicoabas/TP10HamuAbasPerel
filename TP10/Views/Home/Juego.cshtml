@@ -2,12 +2,12 @@
     ViewData["Title"] = "Juego";
 
 }
-Jugador: @ViewBag.username
-Puntaje actual: @ViewBag.puntajeActual
-Pregunta actual: @ViewBag.preguntaActual.Enunciado
+<h2>Jugador: @ViewBag.username</h2>
+<h2>Puntaje actual: @ViewBag.puntajeActual</h2>
+<h2>Pregunta actual: @ViewBag.preguntaActual.Enunciado</h2>
  <form method="post" action='@Url.Action("VerificarRespuesta","Home")'>
         <select id="idRespuesta" name="idRespuesta" required>
-            <h2>Seleccioná una respuesta</h2>
+            <h2>Seleccioná una respuesta:</h2>
             @foreach (Respuestas respuesta in ViewBag.respuestas)
             {
                 <option value="@respuesta.IdRespuesta">@respuesta.Contenido</option>
@@ -19,10 +19,13 @@ Pregunta actual: @ViewBag.preguntaActual.Enunciado
         <button type="submit">Responder</button>
     </form>
 
+@if(ViewBag.esCorrecta)
+{
+    <h2>¿Querés ver la respuesta?</h2>
+    <button onclick="ponerFuncionFinal()">Ver</button>
+}
 
-
-
-
-<input type="hidden" name="verificado" value="@ViewBag.verificarRespuesta">
+<input type="hidden" name="esCorrecta" value="@ViewBag.esCorrecta">
 <input type="hidden" name="rtaActual" value="@ViewBag.respuestaActual">
 <div id="respuesta"></div>
+
