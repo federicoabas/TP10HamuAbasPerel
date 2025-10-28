@@ -62,8 +62,10 @@ public class HomeController : Controller
     public IActionResult verificarRespuesta(int idPregunta, int idRespuesta)
     {
         Juego juego = Objeto.StringToObject<Juego>(HttpContext.Session.GetString("juego"));
-        ViewBag.verificarRespuesta = juego.verificarRespuesta(idRespuesta);
+        bool esCorrecta = juego.verificarRespuesta(idRespuesta);
+        ViewBag.esCorrecta = esCorrecta;
         HttpContext.Session.SetString("juego", Objeto.ObjectToString(juego));
-        return View("Juego");
+        return RedirectToAction ("jugar");
     }
 }
+
