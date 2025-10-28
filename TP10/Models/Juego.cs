@@ -15,7 +15,7 @@ public class Juego
         username = null;
         puntuajeActual = 0;
         cantidadPreguntasCorrectas = 0;
-        contadorNroPreguntaActual = -1;
+        contadorNroPreguntaActual = 0;
         preguntaActual = null;
         listPreguntas = null;
         listRespuestas = null;
@@ -32,10 +32,9 @@ public class Juego
     }
     public Preguntas obtenerProximaPregunta()
     {
-        if (listPreguntas == null || listPreguntas.Count == 0)
+       if (listPreguntas == null || listPreguntas.Count == 0)
             return null;
 
-        contadorNroPreguntaActual++;
         if (contadorNroPreguntaActual < 0 || contadorNroPreguntaActual >= listPreguntas.Count)
             return null;
 
@@ -51,7 +50,7 @@ public class Juego
     {
         bool correcta=false;
         Respuestas rtaCorrecta=null;
-        foreach(Respuestas respuesta in BD.ObtenerRespuestas(preguntaActual.IdPregunta)){
+        foreach(Respuestas respuesta in listRespuestas){
             if(respuesta.Correcta){rtaCorrecta=respuesta;}
         }
         if(rtaCorrecta != null && rtaCorrecta.IdRespuesta==idRespuesta)
